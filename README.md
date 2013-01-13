@@ -8,4 +8,5 @@ assessment from [/rmurphey/js-assessment](/rmurphey/js-assessment)
 
 ### Todo
 
+* numbers section
 * recursive section
