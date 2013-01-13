@@ -1,6 +1,6 @@
 # I take tests
 
-assessment from [/rmurphey/js-assessment](/github.com/rmurphey/js-assessment)
+assessment from [/rmurphey/js-assessment](/rmurphey/js-assessment)
 
 ## My answers
 
