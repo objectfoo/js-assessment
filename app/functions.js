@@ -1,41 +1,81 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(function() {
-  return {
-    argsAsArray : function(fn, arr) {
+	return {
+		argsAsArray : function(fn, arr) {
+			return fn (arr[0], arr[1], arr[2]);
+		},
 
-    },
+		speak : function(fn, obj) {
+			return fn.apply(obj);
+		},
 
-    speak : function(fn, obj) {
+		functionFunction : function(str) {
+			return function (secondString) {
+				return str + ', ' + secondString;
+			};
+		},
 
-    },
+		makeClosures : function(arr, fn) {
+			var i, closure, retArr = [],
 
-    functionFunction : function(str) {
+			makeClosure = function (num) {
+				return function () {
+					return fn (num);
+				};
+			};
 
-    },
+			for (i = 0; i < arr.length; i++) {
+				retArr.push(makeClosure(arr[i]));
+			}
+			return retArr;
+		},
 
-    makeClosures : function(arr, fn) {
+		partial : function(fn, str1, str2) {
+			return function (str3) {
+				return fn.call(null, str1, str2, str3);
+			};
+		},
 
-    },
+		useArguments : function() {
+			var i, args = arguments, total = 0;
+			for (i = args.length - 1; i >= 0; i--) {
+				total += args[i];
+			}
+			return total;
+		},
 
-    partial : function(fn, str1, str2) {
+		callIt : function(fn) {
+			var slice = Array.prototype.slice;
+			return fn.apply(null, slice.call(arguments, 1));
+		},
 
-    },
+		partialUsingArguments : function(fn) {
+			var slice = Array.prototype.slice,
+				args = slice.call(arguments, 1);
+			
+			return function () {
+				args = args.concat(slice.call(arguments));
+				return fn.apply(null, args);
+			};
+		},
 
-    useArguments : function() {
+		curryIt : function(fn, n) {
+			if (typeof n !== 'number') {
+				n = fn.length;
+			}
 
-    },
-
-    callIt : function(fn) {
-
-    },
-
-    partialUsingArguments : function(fn) {
-
-    },
-
-    curryIt : function(fn) {
-
-    }
-  };
+			function makeCurryFn (prev) {
+				return function(arg) {
+					var args = prev.concat(arg);
+					if (args.length < n) {
+						return makeCurryFn(args);
+					} else {
+						return fn.apply(this, args);
+					}
+				};
+			}
+			return makeCurryFn([]);
+		}
+	};
 });
