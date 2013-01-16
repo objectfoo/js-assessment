@@ -1,4 +1,4 @@
-# I take tests
+## I take tests
 
 assessment from [/rmurphey/js-assessment](/rmurphey/js-assessment)
 
@@ -6,6 +6,6 @@ assessment from [/rmurphey/js-assessment](/rmurphey/js-assessment)
 
 [in the app dir](/objectfoo/js-assessment/tree/master/app)
 
-### Todo
+## Todo
 
 * recursive : permutations
