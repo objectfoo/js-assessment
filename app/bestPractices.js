@@ -6,31 +6,31 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
  * populated at all; your job is to fill them out.
  */
 define(function() {
-	return {
-		globals : function() {
-			var myObject = {
-				name : 'Jory'
-			};
+    return {
+        globals : function() {
+            var myObject = {
+                name : 'Jory'
+            };
 
-			return myObject;
-		},
+            return myObject;
+        },
 
-		functions : function(flag) {
-			var getValue;
-			if (flag) {
-				getValue = function() { return 'a'; };
-			} else {
-				getValue = function() { return 'b'; };
-			}
-			return getValue();
-		},
+        functions : function(flag) {
+            var getValue;
+            if (flag) {
+                getValue = function() { return 'a'; };
+            } else {
+                getValue = function() { return 'b'; };
+            }
+            return getValue();
+        },
 
-		parseInt : function(num) {
-			return parseInt(num, 10);
-		},
+        parseInt : function(num) {
+            return parseInt(num, 10);
+        },
 
-		identity : function(val1, val2) {
-			return val1 === val2;
-		}
-	};
+        identity : function(val1, val2) {
+            return val1 === val2;
+        }
+    };
 });
